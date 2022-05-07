@@ -2,40 +2,40 @@ import requests
 import traceback
 import json
 
-
-
 from spr_api.listening.Query import Query
 from spr_api.spr_app import SprApp
 
 
+""" 
+OAuth 2.0 : Authorization Code Grand | 권한 부여 승인 코드 방식
 
-### OAuth 2.0 : Authorization Code Grand | 권한 부여 승인 코드 방식
+1. Key(client_id/{{apikey}}
+2. Secret
+3. __SPR_ENV__.env : 'prod' 
+    -> Not required {{env}}
+    -> app.sprinklr.com: https://api2.sprinklr.com/api/v1/{{endpoint}}
+4. First request : https://api2.sprinklr.com/oauth/authorize?client_id={{api_key}}&response_type=code&redirect_uri=https://www.sprinklr.com/
+5. First response : code=
+6. Second request : https://api2.sprinklr.com/oauth/token?client_id={{api_key}}&client_secret={{secret_key}}&redirect_uri=https://www.sprinklr.com/&grant_type=authorization_code&code={{code}}
+7. Second respose : 
+    "access_token":"
+    "refresh_token":" "
+    "token_type":"Bearer"
+    "expires_in":315569519
 
-# 1. Key(client_id/{{apikey}}): 6xnzg5u87cw6zpr2aexbfbrb
-# 2. Secret: jgDaM3U9FQrDrKnJkztkujqpFjtNMvDRNS6XXSuPUymRvArU9jfG9VxMPgbfDt8Z
-# 3. __SPR_ENV__.env : 'prod' 
-#    -> Not required {{env}}
-#    -> app.sprinklr.com: https://api2.sprinklr.com/api/v1/{{endpoint}}
-# https://api2.sprinklr.com/oauth/authorize?client_id=6xnzg5u87cw6zpr2aexbfbrb&response_type=code&redirect_uri=https://www.sprinklr.com/
-# code=625eba6c17603d5a7803536b
-# https://api2.sprinklr.com/oauth/token?client_id=6xnzg5u87cw6zpr2aexbfbrb&client_secret=jgDaM3U9FQrDrKnJkztkujqpFjtNMvDRNS6XXSuPUymRvArU9jfG9VxMPgbfDt8Z&redirect_uri=https://www.sprinklr.com/&grant_type=authorization_code&code=6256c38817603d5a780f7d39
-# "access_token":"W+Itb9X7vYr3qPAIiEvFvDOkF4Wvj9wjDYNaB6u8zHJjMjhlNmNlMDk5MzYwNTBiMjVhYjgyZWJhYzU5OWViMw=="
-# "refresh_token":"NmFG7vUhBWtbVx1WNiBmhHfL/14V1763CRlR2zmb/6I1ZjcxYzIyZjUxZmJlZDJkM2E4YjUxYjQ5YTkxY2ViMw=="
-# "token_type":"Bearer"
-# "expires_in":315569519
-
+"""
 
 class GetAcess:
     """Super Class"""
 
     def __init__(self):
         self._callback_url = "https://www.sprinklr.com/"
-        self._api_key = "6xnzg5u87cw6zpr2aexbfbrb"
-        self._secret = "jgDaM3U9FQrDrKnJkztkujqpFjtNMvDRNS6XXSuPUymRvArU9jfG9VxMPgbfDt8Z"
-        self._user = "Jaeyeon.Yu@kr.ey.com"
-        self._pw = "Ey_2022!"
+        self._api_key = "Input your API KEY"
+        self._secret = "Input your secret key"
+        self._user = "Input your Sprinklr ID"
+        self._pw = "Input your Sprinklr Password"
         self._code = None
-        self._token = "W+Itb9X7vYr3qPAIiEvFvDOkF4Wvj9wjDYNaB6u8zHJjMjhlNmNlMDk5MzYwNTBiMjVhYjgyZWJhYzU5OWViMw=="
+        self._token = "Input your Access Token"
 
 
     '''
