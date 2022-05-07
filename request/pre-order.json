@@ -1,0 +1,72 @@
+{
+    "report": "SPRINKSIGHTS",
+    "reportingEngine": "LISTENING",
+    "startTime": 1650812400000,
+    "endTime": 1651417199999,
+    "timeZone": "Asia/Seoul",
+    "page": 0,
+    "pageSize": 10,
+    "filters": [
+        {
+            "dimensionName": "QUERY",
+            "filterType": "IN",
+            "values": [
+                "\"사전 예약\" OR 사전예약 OR \"예약 판매\" OR 예약판매 OR \"선 주문\" OR 선주문 OR pre-order OR preorder OR \"pre order\" OR pre-booking OR prebooking OR \"pre booking\" OR pre-reservation OR prereservation OR \"pre reservation\""
+            ],
+            "details": {
+                "type": "DIMENSION",
+                "OLD_DIM_NAME": "TOPIC_QUERY",
+                "INPUT_TYPE": "FREE_TEXT",
+                "EXIST_FILTER": false,
+                "singleSelect": "true"
+            }
+        },
+        {
+            "dimensionName": "TOPIC_IDS",
+            "filterType": "IN",
+            "values": [
+                "62563ce617603d5a78d7fb3a"
+            ],
+            "details": {
+                "contentType": "DB_FILTER",
+                "DRILLDOWN": false,
+                "dF": true,
+                "OLD_DIM_NAME": "TOPIC",
+                "EXIST_FILTER": false
+            }
+        }
+    ],
+    "groupBys": [
+        {
+            "heading": "SN_CREATED_TIME_0",
+            "dimensionName": "SN_CREATED_TIME",
+            "groupType": "DATE_HISTOGRAM",
+            "details": {
+                "isDateTypeDimension": true,
+                "interval": "1d"
+            },
+            "namedFilters": null
+        },
+        {
+            "heading": "TOPIC_IDS_1",
+            "dimensionName": "TOPIC_IDS",
+            "groupType": "FIELD",
+            "details": {},
+            "namedFilters": null
+        }
+    ],
+    "projections": [
+        {
+            "heading": "M_SPRINKSIGHTS_TOTAL_MENTION1372_0",
+            "measurementName": "TOTAL_MENTION1372",
+            "aggregateFunction": "SUM",
+            "details": {}
+        }
+    ],
+    "sorts": [
+        {
+            "heading": "SN_CREATED_TIME_0",
+            "order": "ASC"
+        }
+    ]
+}

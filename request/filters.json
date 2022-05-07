@@ -1,0 +1,28 @@
+{
+    "keywordQuery":{
+        "dimensionName": "QUERY",
+        "filterType": "IN",
+        "values": [],
+        "details": {
+            "type": "DIMENSION",
+            "OLD_DIM_NAME": "TOPIC_QUERY",
+            "INPUT_TYPE": "FREE_TEXT",
+            "EXIST_FILTER": false,
+            "singleSelect": "true"
+        }
+    },
+    "Theme":{
+        "dimensionName": "LST_THEME",
+        "filterType": "IN",
+        "values": [
+            "61320296f89dc175467fcc94"
+        ],
+        "details": {
+            "type": "DIMENSION",
+            "dF": true,
+            "OLD_DIM_NAME": "THEMES",
+            "DRILLDOWN": false,
+            "EXIST_FILTER": false
+        }
+    }
+}

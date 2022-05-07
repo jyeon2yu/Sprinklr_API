@@ -1,0 +1,70 @@
+{
+    "report": "SPRINKSIGHTS",
+    "reportingEngine": "LISTENING",
+    "startTime": 0,
+    "endTime": 0,
+    "timeZone": "Asia/Seoul",
+    "page": 0,
+    "pageSize": 365,
+    "filters": [
+        {
+            "dimensionName": "TOPIC_IDS",
+            "filterType": "IN",
+            "values": [],
+            "details": {
+                "type": "DIMENSION",
+                "dF": true,
+                "OLD_DIM_NAME": "TOPIC",
+                "DRILLDOWN": false,
+                "EXIST_FILTER": false
+            }
+        },
+        {
+            "dimensionName": "LISTENING_MEDIA_TYPE",
+            "filterType": "NIN",
+            "values": [
+                "BLOGS",
+                "BLOG_COMMENTS",
+                "NEWS"
+            ],
+            "details": {
+                "type": "DIMENSION",
+                "OLD_DIM_NAME": "LISTENING_MEDIA_TYPE"
+            }
+        }
+    ],
+    "groupBys": [
+        {
+            "heading": "SN_CREATED_TIME_0",
+            "dimensionName": "SN_CREATED_TIME",
+            "groupType": "DATE_HISTOGRAM",
+            "details": {
+                "isDateTypeDimension": true,
+                "interval": "1d"
+            }
+        }
+    ],
+    "projections": [
+        {
+            "heading": "M_SPRINKSIGHTS_IM_SENTIMENT_TOTAL490_0",
+            "measurementName": "IM_SENTIMENT_TOTAL490",
+            "aggregateFunction": "SUM"
+        },
+        {
+            "heading": "M_SPRINKSIGHTS_IM_POSITIVE_MENTIONS715_1",
+            "measurementName": "IM_POSITIVE_MENTIONS715",
+            "aggregateFunction": "SUM"
+        },
+        {
+            "heading": "M_SPRINKSIGHTS_IM_NEGATIVE_MENTIONS290_2",
+            "measurementName": "IM_NEGATIVE_MENTIONS290",
+            "aggregateFunction": "SUM"
+        }
+    ],
+    "sorts": [
+        {
+            "heading": "SN_CREATED_TIME_0",
+            "order": "ASC"
+        }
+    ]
+}
