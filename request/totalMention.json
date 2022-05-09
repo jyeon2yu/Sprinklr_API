@@ -1,23 +1,21 @@
 {
     "report": "SPRINKSIGHTS",
     "reportingEngine": "LISTENING",
-    "startTime": 1650812400000,
-    "endTime": 1651417199999,
+    "startTime": 0,
+    "endTime": 0,
     "timeZone": "Asia/Seoul",
     "page": 0,
-    "pageSize": 10,
+    "pageSize": 365,
     "filters": [
         {
             "dimensionName": "TOPIC_IDS",
             "filterType": "IN",
-            "values": [
-                "62563ce617603d5a78d7fb3a"
-            ],
+            "values": [],
             "details": {
-                "contentType": "DB_FILTER",
-                "DRILLDOWN": false,
+                "type": "DIMENSION",
                 "dF": true,
                 "OLD_DIM_NAME": "TOPIC",
+                "DRILLDOWN": false,
                 "EXIST_FILTER": false
             }
         }

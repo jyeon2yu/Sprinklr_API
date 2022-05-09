@@ -11,17 +11,36 @@
             "singleSelect": "true"
         }
     },
-    "Theme":{
+    "theme":{
         "dimensionName": "LST_THEME",
         "filterType": "IN",
-        "values": [
-            "61320296f89dc175467fcc94"
-        ],
+        "values": [],
         "details": {
             "type": "DIMENSION",
             "dF": true,
             "OLD_DIM_NAME": "THEMES",
             "DRILLDOWN": false,
+            "EXIST_FILTER": false
+        }
+    },
+    "authorScreenName":{
+        "dimensionName": "USER_SCREEN_NAME",
+        "filterType": "IN",
+        "values": [],
+        "details": {
+            "type": "DIMENSION",
+            "INPUT_TYPE": "TAG"
+        }
+    },
+    "themeTag":{
+        "dimensionName": "LST_THEME_TAG",
+        "filterType": "IN",
+        "values": [
+            "Regions"
+        ],
+        "details": {
+            "type": "DIMENSION",
+            "OLD_DIM_NAME": "THEME_TAGS",
             "EXIST_FILTER": false
         }
     }

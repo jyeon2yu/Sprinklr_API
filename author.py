@@ -55,10 +55,11 @@ class GetAcess:
 
         res = requests.get(url, headers=header)
 
-        self._topicGroups = res.json()['response']['topicGroups'] # list
+        # self._topicGroups = res.json()['response']['topicGroups'] # list
 
         # Data Format: [ { 'id':'', 'name':'', 'topicGroup':'', 'tags':[],... }, {...}, ... ]
         topics = res.json()['response']['topics'] # list
+        topicID = ()
 
         for topic in topics:
             if topic['name'] in topic_Name:
@@ -66,6 +67,11 @@ class GetAcess:
                 # topicGroups = topic['topicGroup']
                 # topicTags = topic['tags'] # return type: list
                 break
+        for topic_name in topic_Name:
+            for topic in topics:
+                if topic['name'] is topic_name:
+                    topicID = topicID + (topic['id'],)
+
 
         return topicID
 
@@ -74,13 +80,35 @@ class GetAcess:
     '''
         REST: GET
         Response Data: Json
-        Return Data: Topic ID
+        Return Data: Theme ID
     '''
     def listening_themes(self, *theme_Name):
-        pass
+        url = "https://api2.sprinklr.com/api/v2/listening-theme"
+        header = {
+            'Authorization': 'Bearer '+ self._token,
+            'Content-Type': 'application/json',
+            'key': self._api_key
+        }
+
+        # res = requests.get(url, headers=header)
+
+        # self._topicGroups = res.json()['response']['topicGroups'] # list
+
+        # Data Format: [ { 'id':'', 'name':'', 'topicGroup':'', 'tags':[],... }, {...}, ... ]
+        # topics = res.json()['response']['topics'] # list
+
+        # for topic in topics:
+        #     if topic['name'] in theme_Name:
+        #         topicID = topic['id']
+        #         # topicGroups = topic['topicGroup']
+        #         # topicTags = topic['tags'] # return type: list
+        #         break
+
+        # return topicID
 
 
-
+# if __name__ == "__main__":
+#     print(GetAcess().listening_themes("South Korea Region"))
 
 
 

@@ -5,10 +5,9 @@ from time import localtime, time
 
 import pandas as pd
 
-
-class Sentiment(author.GetAcess):
-    '''Sub Class'''
-
+class TotalMention(author.GetAcess):
+    ''' Sub class '''
+    
     def __init__(self):
         super().__init__()
         self._hostURL = "https://api2.sprinklr.com/api/v1/reports/query"
@@ -18,7 +17,6 @@ class Sentiment(author.GetAcess):
             'cache-control': 'no-cache',
             'key': self._api_key
         }
-        
 
     ''' 
         REST: POST
@@ -26,16 +24,14 @@ class Sentiment(author.GetAcess):
             [Create Time, IM_Sentiment Total, IM_Positive Mention, IM_Negative Mention]
         Return Date: DataFrame
     '''
-    def sentiment_topic(self, s_time, e_time, *topic_id, **kwargs):
-        
+    def totalMentions_topic(self, s_time, e_time, *topic_id, **kwargs):
         # REST API, request data
-        with open('request/sentiment.json', encoding='UTF-8') as f:
+        with open('request/totalMention.json', encoding='UTF-8') as f:
             json_data = json.load(f)
 
         with open('request/filters.json', encoding='UTF-8') as f:
             filter_data = json.load(f)
 
-        
         ### Set Start and End Date ###
         json_data['startTime'] = s_time
         json_data['endTime'] = e_time
@@ -54,20 +50,19 @@ class Sentiment(author.GetAcess):
 
         res_dict = {
             'Date':[], 
-            'IM_Sentiment Total':[], 
-            'IM_Positive Mention':[],
-            'IM_Negative Mention':[]
+            'Total Mention':[], 
         }
 
+        # res.json()[rows] 
+        # 'rows': [['1648738800000', 'Unpacked_S22F', 226985.0] ,..., ]
         for row in res.json()['rows']:
             res_dict['Date'].append(datetime.fromtimestamp(int(row[0])/1e3))
-            res_dict['IM_Sentiment Total'].append(int(row[1]))
-            res_dict['IM_Positive Mention'].append(int(row[2]))
-            res_dict['IM_Negative Mention'].append(int(row[3]))
+            res_dict['Total Mention'].append(int(row[2]))
+            
 
 
         # DataFrame
-        df_sentiment = pd.DataFrame(res_dict)
-        
-        return df_sentiment
+        df_totalMentions = pd.DataFrame(res_dict)
 
+        
+        return df_totalMentions
