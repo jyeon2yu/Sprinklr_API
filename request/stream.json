@@ -1,0 +1,38 @@
+{
+    "report": "SPRINKSIGHTS",
+    "reportingEngine": "LISTENING",
+    "startTime": 0,
+    "endTime": 0,
+    "timeZone": "Asia/Seoul",
+    "page": 0,
+    "pageSize": 1000,
+    "filters": [
+        {
+            "dimensionName": "TOPIC_IDS",
+            "filterType": "IN",
+            "values": [],
+            "details": {
+                "type": "DIMENSION",
+                "dF": true,
+                "OLD_DIM_NAME": "TOPIC",
+                "DRILLDOWN": false,
+                "EXIST_FILTER": false
+            }
+        }
+    ],
+    "groupBys": [
+        {
+            "heading": "ES_MESSAGE_ID_0",
+            "dimensionName": "ES_MESSAGE_ID",
+            "groupType": "FIELD",
+            "details": {}
+        }
+    ],
+    "projections": [
+        {
+            "heading": "M_SPRINKSIGHTS_MENTIONS_COUNT_0",
+            "measurementName": "MENTIONS_COUNT",
+            "aggregateFunction": "SUM"
+        }
+    ]
+}

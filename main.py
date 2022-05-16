@@ -9,8 +9,8 @@ import pandas as pd
 if __name__ == "__main__":
     
     """ Date Setting """
-    start = datetime(2022,4,1,0,0,0)   # 2022-04-11 00:00:00
-    end = datetime(2022,4,30,23,59,59)  # 2022-04-18 23:59:59
+    start = datetime(2022,4,1,0,0,0)   # 2022-04-01 00:00:00
+    end = datetime(2022,4,30,23,59,59)  # 2022-04-30 23:59:59
 
     startTime = round(start.timestamp()*1000)
     endTime = round(end.timestamp()*1000)
